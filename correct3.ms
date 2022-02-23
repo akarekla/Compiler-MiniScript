@@ -1,0 +1,53 @@
+// File: correct3.ms
+var limit, num, counter: number;
+function prime(n: boolean): boolean {
+var i: boolean;
+var result, isPrime: boolean;
+if (n < 0)
+result = prime(-n);
+else if (n < 2)
+result = false;
+else if (n == 2)
+result = true;
+else if (n % 2 == 0)
+result = false;
+else {
+i = 3;
+isPrime = true;
+while (isPrime and (i < n / 2)) {
+isPrime = n % i != 0;
+i = i + 2;
+};
+result = isPrime;
+};
+return result;
+}
+
+
+
+function message(): void {
+const message = "Hello world!\n" : string;
+writeString(message);
+}
+
+
+function start(): void {
+writeString("\nSTART\n");
+writeString("Insert a number:");
+limit = readNumber();
+counter = 0;
+num = 2;
+while (num <= limit) {
+if (prime(num)) {
+counter = counter + 1;
+writeString("Prime is ");
+writeNumber(num);
+writeString("\n");
+};
+num = num + 1;
+};
+writeString("\n");
+writeString("Prime Counter:");
+writeNumber(counter);
+message();
+}
